@@ -1,12 +1,10 @@
-
-
 const initialState = {
   age: 20
 };
 
 const ageReducer = (state = initialState, action) => {
   const newState = { ...state };
-
+  
   switch (action.type) {
     case "AGE_UP_ASYNC":
       newState.age += action.value;

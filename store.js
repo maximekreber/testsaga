@@ -1,8 +1,10 @@
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import ageReducer from './redux/reducers/ageReducer'
+import rootReducer from "./redux/reducers/reducers";
+import rootSaga from "./redux/sagas/AgeSaga";
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(ageReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 
 export default store;
